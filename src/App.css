@@ -1,0 +1,31 @@
+.app {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.botoes {
+    align-items: center;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
+    background-color: blueviolet;
+    font-size: 1.7rem;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkviolet;
+    transform: scale(1.1);
+    transition: all 0.2s ease;
+}
