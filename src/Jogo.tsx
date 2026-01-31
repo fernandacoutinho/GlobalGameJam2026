@@ -1,8 +1,12 @@
 import { useReducer } from 'react';
 import { EnfeitesReducer, type EnfeiteState } from './EnfeitesReducer';
 import './Jogo.css'
-import mascara from './assets/mascara.png'
+
+import mascaraPequena from "./assets/mascaraP.png";
+import mascaraGrande from "./assets/mascaraG.png";
+
 import penas from './assets/penas.png'
+import { MascaraReducer, type MascaraState } from './MascaraReducer';
 
 type JogoProps = {
   voltar: () => void;
@@ -10,23 +14,37 @@ type JogoProps = {
 
 export default function Jogo({voltar} : JogoProps) {
   const mascaraInicial: EnfeiteState = { ativos: [] };
+  const mascaraPadrao: MascaraState = { type: "pequena" };
   const [state, dispatch] = useReducer(EnfeitesReducer, mascaraInicial);
-
+  const [stateMascara, dispatchMascara] = useReducer(MascaraReducer, mascaraPadrao);
+  const srcMascara = stateMascara.type === "pequena" ? mascaraPequena : mascaraGrande;
+  
   return (
     <>
-      <button className='bVoltar' onClick={voltar}>⭯</button>
+      <button className='botao-voltar' onClick={voltar}>⭯</button>
 
-      <h1 id='tMontagem'>Monte sua máscara e conquiste a coroa!</h1>
+      <h1 id='titulo-montagem'>Monte sua máscara e conquiste a coroa!</h1>
 
-      <div className='mascara'>
-        <img src={mascara} alt="Máscara" /> 
+      <div className="mascara">
+        <img src={srcMascara} alt={`Máscara ${stateMascara.type}`} />
       </div>
 
-      <button onClick={() => dispatch({ type: "alternar", conteudo: "penas" })}>
-        Penas
-      </button>
+      <div className='lado-esquerdo'>
+        <button onClick={() => dispatch({ type: "alternar", conteudo: "penas" })}>
+          Penas
+        </button>
+      </div>
 
-      <button className='bFinalizar'>Finalizar</button>
+      <div className='lado-direito'>
+        <button onClick={() => dispatch({ type: "alternar", conteudo: "penas" })}>
+          Penas
+        </button>
+      </div>
+
+      <button className='altera-mascara' onClick={() => dispatchMascara({
+        type: "alternar", conteudo: stateMascara.type === "pequena" ? "grande" : "pequena"
+      })}>Alterar</button>
+      <button className='botao-finalizar'>Finalizar</button>
 
       {state.ativos.includes("penas") && (<img src={penas} className="ePena"/>)}
     </>

@@ -1,4 +1,4 @@
-.bVoltar {
+.botao-voltar {
     display: flex;
     position: absolute;
     top: 60px;
@@ -9,19 +9,19 @@
     transition: transform 0.4s ease;
 }
 
-.bVoltar:hover {
+.botao-voltar:hover {
     background-color: transparent;
     color: darkviolet;
     transform: rotate(-70deg);
 }
 
-.bFinalizar {
+.botao-finalizar {
     display: flex;
     position: absolute;
     bottom: 40px;
 }
 
-#tMontagem {
+#titulo-montagem {
     display: flex;
     position: absolute;
     top: 60px;
@@ -38,4 +38,22 @@
 .mascara img {
   max-width: 300px;
   height: auto;
+}
+
+.lado-esquerdo {
+    display: flex;
+    position: absolute;
+    left: 25%;
+    top: 170px;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.lado-direito {
+    display: flex;
+    position: absolute;
+    right: 25%;
+    top: 170px;
+    flex-direction: column;
+    gap: 20px;
 }
