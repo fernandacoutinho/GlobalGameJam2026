@@ -3,4 +3,39 @@
     position: absolute;
     top: 60px;
     left: 5%;
+    background-color: transparent;
+    color: blueviolet;
+    font-size: 1.5rem;
+    transition: transform 0.4s ease;
+}
+
+.bVoltar:hover {
+    background-color: transparent;
+    color: darkviolet;
+    transform: rotate(-70deg);
+}
+
+.bFinalizar {
+    display: flex;
+    position: absolute;
+    bottom: 40px;
+}
+
+#tMontagem {
+    display: flex;
+    position: absolute;
+    top: 60px;
+    font-size: 1.5rem;
+}
+
+.mascara {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.mascara img {
+  max-width: 300px;
+  height: auto;
 }
