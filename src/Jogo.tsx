@@ -1,10 +1,14 @@
 import './Jogo.css'
 
-export default function Jogo() {
+type JogoProps = {
+  voltar: () => void;
+}
+
+export default function Jogo({voltar} : JogoProps) {
   return (
-    <div className='tela-jogo'>
-      <h2>Bem-vindo ao Jogo!</h2>
-      {/* Conteúdo do jogo vai aqui */}
-    </div>
+    <>
+      <button className='bVoltar' onClick={voltar}>Tela inicial</button>
+      <h2>Jogo</h2>
+    </>
   )
 }

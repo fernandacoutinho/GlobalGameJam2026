@@ -1,5 +1,12 @@
-export default function Tutorial() {
+type TutorialProps = {
+  voltar: () => void;
+}
+
+export default function Tutorial({voltar} : TutorialProps) {
     return (
-        <h1>o conteudo do tutorial</h1>
+        <>
+            <button className='bVoltar' onClick={voltar}>Tela inicial</button>
+            <h2>Tutorial</h2>
+        </>
     )
 }

@@ -20,7 +20,7 @@ function App() {
     <div className="app">
       {tela === 'menu' && (
         <>
-          <h1>B.E.L.L. - Baile Encantado de Lala Land</h1>
+          <h1>B.E.L.L.</h1>
           <div className = "botoes">
             <button onClick={jogar}>Jogar</button>
             <button onClick={tutorial}>Tutorial</button>
@@ -28,8 +28,8 @@ function App() {
         </>
       )}
 
-      {tela === 'jogo' && <Jogo />}
-      {tela === 'tutorial' && <Tutorial />}
+      {tela === 'jogo' && <Jogo voltar={() => setTela('menu')} />}
+      {tela === 'tutorial' && <Tutorial voltar={() => setTela('menu')}/>}
     </div>
   )
 }
