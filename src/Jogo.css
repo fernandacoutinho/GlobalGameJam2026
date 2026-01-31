@@ -57,3 +57,19 @@
     flex-direction: column;
     gap: 20px;
 }
+
+.botao-item{
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+
+.botao-item img{
+  width: 44px;
+  height: 44px;
+}

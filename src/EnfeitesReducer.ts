@@ -1,4 +1,4 @@
-type Enfeite = 'penas';
+type Enfeite = 'penas' | 'flor' | 'gema' | 'glitter' | 'fita' | 'coroa';
 
 export type EnfeiteState = {
     ativos: Enfeite[];
