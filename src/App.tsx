@@ -3,6 +3,7 @@ import { useState } from "react";
 import Historia from "./Historia";
 import Jogo from "./Jogo";
 import Final from "./Final";
+import Footer from "./Footer";
 
 type Tela = "menu" | "historia" | "jogo" | "final";
 
@@ -25,6 +26,7 @@ function App() {
           <div className="botoes">
             <button onClick={jogar}>Jogar</button>
           </div>
+          <Footer nomes="Fernanda Coutinho & Juliana Lindebeck" />
         </>
       )}
 
