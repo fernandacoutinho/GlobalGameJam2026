@@ -4,11 +4,12 @@
     flex-direction: column;
     justify-content: center;
     min-height: 100vh;
+    background-color: rgb(8, 1, 23);
 }
 
 h1 {
     font-size: 4.5rem;
-    color: blueviolet;
+    color: rgb(255, 144, 231);
 }
 
 .botoes {
@@ -22,18 +23,18 @@ h1 {
 
 button {
     padding: 10px 20px;
-    background-color: blueviolet;
+    background-color: rgb(15, 9, 93);
     color: white;
     font-size: 1.2rem;
     font-weight: bolder;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
     transition: all 0.2s;
 }
 
 button:hover {
-    background-color: darkviolet;
+    background-color: rgb(29, 9, 82);
     transform: scale(1.1);
 }
 

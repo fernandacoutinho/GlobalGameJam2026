@@ -1,0 +1,67 @@
+.historia {
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.historia.final {
+  justify-content: center;
+  padding-top: 0;
+}
+
+.historia-caixa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.historia.final .historia-caixa {
+  height: 100vh;
+  justify-content: center;
+}
+
+.historia-imagem {
+  width: 520px;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.historia-imagem img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.historia-texto {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.historia-caixa p {
+  font-size: 1.2rem;
+  color: white;
+  max-width: 720px;
+  text-align: center;
+  line-height: 1.2;
+  font-weight: 100;
+}
+
+.historia.final .historia-imagem {
+  display: none;
+}
+
+.historia.final .historia-texto {
+  min-height: auto;
+}
+
+.texto-final {
+  font-size: 2.2rem;
+  line-height: 1.3;
+}

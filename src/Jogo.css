@@ -4,30 +4,38 @@
   top: 60px;
   left: 5%;
   background-color: transparent;
-  color: blueviolet;
+  color: rgb(255, 255, 255);
   font-size: 1.5rem;
   transition: transform 0.4s ease;
 }
 
 .botao-voltar:hover {
   background-color: transparent;
-  color: darkviolet;
+  color: rgb(228, 228, 228);
   transform: rotate(-70deg);
 }
 
 .botao-finalizar {
   display: flex;
   position: absolute;
-  bottom: 40px;
+  bottom: 12%;
+  right: 30%;
+}
+
+.altera-mascara{
+  display: flex;
+  position: absolute;
+  bottom: 12%;
+  left: 30%;
 }
 
 #titulo-montagem {
   position: absolute;
-  top: 130px;
+  top: 14%;
   left: 50%;
   transform: translateX(-50%);
   font-size: 1.6rem;
-  color: blueviolet;
+  color: rgb(255, 255, 255);
   text-align: center;
 }
 
@@ -36,11 +44,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 420px;
+  height: 360px;
 }
 
-.mascara img {
-  max-width: 300px;
+.mascara-img {
+  max-width: 580px;
   height: auto;
   pointer-events: none;
   user-select: none;
@@ -48,7 +56,7 @@
 
 .lado-esquerdo {
   position: absolute;
-  left: 25%;
+  left: 15%;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -58,7 +66,7 @@
 
 .lado-direito {
   position: absolute;
-  right: 25%;
+  right: 15%;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -74,11 +82,11 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: #f0f0f0a8;
+  background-color: rgb(15, 9, 93);
 }
 
 .botao-item:hover{
-  background: rgba(195, 0, 255, 0.685);
+  background-color: rgb(29, 9, 82);
 }
 
 .botao-item img{
@@ -105,29 +113,36 @@
 
 .lixeira {
   position: absolute;
-  left: 30%;
+  left: 18%;
   transform: translateX(-50%);
-  bottom: 55px;
-  width: 72px;
-  height: 72px;
-  border-radius: 18px;
-  background: rgba(240, 240, 240, 0.95);
+  bottom: 11%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  background-color: rgb(15, 9, 93);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
   user-select: none;
+  transition: all 0.2s ease;
 }
 
 .lixeira span {
-  font-size: 32px;
+  font-size: 28px;
   line-height: 1;
 }
 
 .lixeira.over {
-  background: rgba(195, 0, 255, 0.685);
-  box-shadow: 0 12px 26px rgba(197, 24, 250, 0.22);
+  background-color: rgb(138, 15, 15);
+  transform: translateX(-50%) scale(1.2);
 }
+
+.lixeira:hover {
+  cursor: pointer;
+  background-color: rgb(29, 9, 82);
+  transform: translateX(-50%) scale(1.1);
+}
+
 
 html, body {
   height: 100%;

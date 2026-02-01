@@ -1,14 +1,15 @@
 import './App.css'
 import { useState } from "react";
+import Historia from './Historia';
 import Jogo from './Jogo'
 
-type Tela = 'menu' | 'jogo' | 'tutorial';
+type Tela = 'menu' | 'historia' | 'jogo';
 
 function App() {
   const [tela, setTela] = useState<Tela>('menu');
   
   function jogar() {
-    setTela('jogo');
+    setTela('historia');
   }
 
   return (
@@ -22,6 +23,7 @@ function App() {
         </>
       )}
 
+      {tela === 'historia' && <Historia terminar={() => setTela('jogo')} />}
       {tela === 'jogo' && <Jogo voltar={() => setTela('menu')} />}
     </div>
   )
