@@ -201,29 +201,29 @@ export default function Jogo({ voltar, finalizar }: JogoProps) {
       </div>
 
       <div className="lado-esquerdo">
-        <button className="botao-item" onClick={() => adicionarEnfeite("penas")} title="Penas" aria-label="Penas">
+        <button className="botao-item" onClick={() => adicionarEnfeite("penas")} title="Gema 1" aria-label="Gema 1">
           <img src={penas} alt="" />
         </button>
 
-        <button className="botao-item" onClick={() => adicionarEnfeite("flor")} title="Flor" aria-label="Flor">
+        <button className="botao-item" onClick={() => adicionarEnfeite("flor")} title="Gema 2" aria-label="Gema 2">
           <img src={flor} alt="" />
         </button>
 
-        <button className="botao-item" onClick={() => adicionarEnfeite("gema")} title="Gema" aria-label="Gema">
+        <button className="botao-item" onClick={() => adicionarEnfeite("gema")} title="Gema 3" aria-label="Gema 3">
           <img src={gema} alt="" />
         </button>
       </div>
 
       <div className="lado-direito">
-        <button className="botao-item" onClick={() => adicionarEnfeite("glitter")} title="Glitter" aria-label="Glitter">
+        <button className="botao-item" onClick={() => adicionarEnfeite("glitter")} title="Gema 4" aria-label="Gema 4">
           <img src={glitter2} alt="" />
         </button>
 
-        <button className="botao-item" onClick={() => adicionarEnfeite("fita")} title="Fita" aria-label="Fita">
+        <button className="botao-item" onClick={() => adicionarEnfeite("fita")} title="Gema 5" aria-label="Gema 5">
           <img src={fita} alt="" />
         </button>
 
-        <button className="botao-item" onClick={() => adicionarEnfeite("coroa")} title="Coroa" aria-label="Coroa">
+        <button className="botao-item" onClick={() => adicionarEnfeite("coroa")} title="Gema 6" aria-label="Gema 6">
           <img src={coroa} alt="" />
         </button>
       </div>
