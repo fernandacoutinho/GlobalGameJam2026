@@ -1,32 +1,45 @@
-import './App.css'
+import "./App.css";
 import { useState } from "react";
-import Historia from './Historia';
-import Jogo from './Jogo'
+import Historia from "./Historia";
+import Jogo from "./Jogo";
+import Final from "./Final";
 
-type Tela = 'menu' | 'historia' | 'jogo';
+type Tela = "menu" | "historia" | "jogo" | "final";
 
 function App() {
-  const [tela, setTela] = useState<Tela>('menu');
-  
+  const [tela, setTela] = useState<Tela>("menu");
+
   function jogar() {
-    setTela('historia');
+    setTela("historia");
+  }
+
+  function voltarMenu() {
+    setTela("menu");
   }
 
   return (
     <div className="app">
-      {tela === 'menu' && (
+      {tela === "menu" && (
         <>
           <h1>B.E.L.L.</h1>
-          <div className = "botoes">
+          <div className="botoes">
             <button onClick={jogar}>Jogar</button>
           </div>
         </>
       )}
 
-      {tela === 'historia' && <Historia terminar={() => setTela('jogo')} />}
-      {tela === 'jogo' && <Jogo voltar={() => setTela('menu')} />}
+      {tela === "historia" && <Historia terminar={() => setTela("jogo")} />}
+
+      {tela === "jogo" && (
+        <Jogo
+          voltar={voltarMenu}
+          finalizar={() => setTela("final")}
+        />
+      )}
+
+      {tela === "final" && <Final terminar={voltarMenu} />}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

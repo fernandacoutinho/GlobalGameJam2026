@@ -20,6 +20,7 @@
   position: absolute;
   bottom: 12%;
   right: 30%;
+  background-color: green;
 }
 
 .altera-mascara{
@@ -142,7 +143,6 @@
   background-color: rgb(29, 9, 82);
   transform: translateX(-50%) scale(1.1);
 }
-
 
 html, body {
   height: 100%;

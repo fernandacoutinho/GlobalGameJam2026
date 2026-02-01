@@ -16,6 +16,7 @@ import { MascaraReducer, type MascaraState } from "./MascaraReducer";
 
 type JogoProps = {
   voltar: () => void;
+  finalizar: () => void;
 };
 
 type DragInfo = {
@@ -24,7 +25,7 @@ type DragInfo = {
   offsetY: number;
 };
 
-export default function Jogo({ voltar }: JogoProps) {
+export default function Jogo({ voltar, finalizar }: JogoProps) {
   const enfeitesInicial: EnfeiteState = { ativos: [], zTop: 0 };
   const mascaraPadrao: MascaraState = { type: "branca" };
 
@@ -231,7 +232,9 @@ export default function Jogo({ voltar }: JogoProps) {
         Trocar Máscara
       </button>
 
-      <button className="botao-finalizar">Finalizar</button>
+      <button className="botao-finalizar" onClick={finalizar}>
+        Finalizar
+      </button>
 
       <div ref={trashRef} className={`lixeira ${overTrash ? "over" : ""}`}>
         <span>🗑️</span>
