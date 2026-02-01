@@ -1,4 +1,4 @@
-export type Mascara = "pequena" | "grande";
+export type Mascara = "branca" | "preta";
 
 export type MascaraState = {
   type: Mascara;
@@ -14,7 +14,7 @@ export function MascaraReducer(
   switch (action.type) {
     case "alternar":
       return {
-        type: state.type === "pequena" ? "grande" : "pequena",
+        type: state.type === "branca" ? "preta" : "branca",
       };
 
     default:

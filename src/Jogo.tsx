@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useReducer, useRef, useState } from "react";
 import { EnfeitesReducer, type EnfeiteState, type EnfeiteTipo } from "./EnfeitesReducer";
 import "./Jogo.css";
 
-import mascaraPequena from "./assets/mascaraP.png";
+import mascarabranca from "./assets/mascaraP.png";
 import mascaraGrande from "./assets/mascaraG.png";
 
 import penas from "./assets/pena.png";
@@ -25,42 +25,49 @@ type DragInfo = {
 };
 
 export default function Jogo({ voltar }: JogoProps) {
-  // ✅ novo state inicial (precisa do zTop)
   const enfeitesInicial: EnfeiteState = { ativos: [], zTop: 0 };
-
-  const mascaraPadrao: MascaraState = { type: "pequena" };
+  const mascaraPadrao: MascaraState = { type: "branca" };
 
   const [state, dispatch] = useReducer(EnfeitesReducer, enfeitesInicial);
   const [stateMascara, dispatchMascara] = useReducer(MascaraReducer, mascaraPadrao);
 
-  const srcMascara = stateMascara.type === "pequena" ? mascaraPequena : mascaraGrande;
+  const srcMascara = stateMascara.type === "branca" ? mascarabranca : mascaraGrande;
 
-  // ✅ palco da máscara
-  const maskRef = useRef<HTMLDivElement | null>(null);
-
-  // ✅ drag state
+  const maskImgRef = useRef<HTMLImageElement | null>(null);
   const [drag, setDrag] = useState<DragInfo | null>(null);
 
-  // ✅ map de assets (mantém seu estilo de renderizar imagens)
   const assets = useMemo(() => {
     return {
       penas,
       flor,
       gema,
-      glitter: glitter2, // botão usa glitter2, então usamos ele como asset do tipo glitter
+      glitter: glitter2,
       fita,
       coroa,
     } satisfies Record<EnfeiteTipo, string>;
   }, []);
 
+  const TAM = 48;
+  const MARGEM = 48;
+
   function getMaskRect() {
-    const el = maskRef.current;
+    const el = maskImgRef.current;
     if (!el) return null;
     return el.getBoundingClientRect();
   }
 
-  function pointInsideRect(clientX: number, clientY: number, rect: DOMRect) {
-    return clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom;
+  function itemDentroDoRect(clientX: number, clientY: number, rect: DOMRect, offsetX: number, offsetY: number) {
+    const left = rect.left + MARGEM;
+    const right = rect.right - MARGEM;
+    const top = rect.top + MARGEM + 50;
+    const bottom = rect.bottom - MARGEM - 50;
+
+    const itemLeft = clientX - offsetX;
+    const itemTop = clientY - offsetY;
+    const itemRight = itemLeft + TAM;
+    const itemBottom = itemTop + TAM;
+
+    return itemLeft >= left && itemRight <= right && itemTop >= top && itemBottom <= bottom;
   }
 
   function clientToMaskXY(clientX: number, clientY: number, offsetX = 0, offsetY = 0) {
@@ -73,19 +80,16 @@ export default function Jogo({ voltar }: JogoProps) {
     return { x, y };
   }
 
-  // ✅ adiciona enfeite no centro da máscara
   function adicionarEnfeite(tipo: EnfeiteTipo) {
     const rect = getMaskRect();
     if (!rect) return;
 
-    const TAM = 48; // mesmo do seu CSS .enfeite
     const x = rect.width / 2 - TAM / 2;
     const y = rect.height / 2 - TAM / 2;
 
     dispatch({ type: "adicionar", tipo, x, y });
   }
 
-  // ✅ começa o drag
   function onMouseDownEnfeite(e: React.MouseEvent, id: string) {
     e.preventDefault();
     e.stopPropagation();
@@ -102,7 +106,6 @@ export default function Jogo({ voltar }: JogoProps) {
     });
   }
 
-  // ✅ move + solta
   useEffect(() => {
     function onMove(ev: MouseEvent) {
       if (!drag) return;
@@ -122,8 +125,7 @@ export default function Jogo({ voltar }: JogoProps) {
         return;
       }
 
-      // se soltar fora, remove
-      if (!pointInsideRect(ev.clientX, ev.clientY, rect)) {
+      if (!itemDentroDoRect(ev.clientX, ev.clientY, rect, drag.offsetX, drag.offsetY)) {
         dispatch({ type: "remover", id: drag.id });
       }
 
@@ -147,11 +149,15 @@ export default function Jogo({ voltar }: JogoProps) {
 
       <h1 id="titulo-montagem">Monte sua máscara e conquiste a coroa!</h1>
 
-      {/* ✅ palco / máscara (agora é relativo, e enfeites ficam em cima) */}
-      <div className="mascara-palco" ref={maskRef}>
-        <img src={srcMascara} alt={`Máscara ${stateMascara.type}`} className="mascara-img" draggable={false} />
+      <div className="mascara-palco">
+        <img
+          ref={maskImgRef}
+          className="mascara-img"
+          src={srcMascara}
+          alt={`Máscara ${stateMascara.type}`}
+          draggable={false}
+        />
 
-        {/* ✅ render dinâmico dos enfeites */}
         {state.ativos.map((it) => (
           <img
             key={it.id}
@@ -165,7 +171,6 @@ export default function Jogo({ voltar }: JogoProps) {
         ))}
       </div>
 
-      {/* ✅ botões laterais continuam iguais no visual, só muda o onClick */}
       <div className="lado-esquerdo">
         <button className="botao-item" onClick={() => adicionarEnfeite("penas")} title="Penas" aria-label="Penas">
           <img src={penas} alt="" />
@@ -194,7 +199,6 @@ export default function Jogo({ voltar }: JogoProps) {
         </button>
       </div>
 
-      {/* ✅ agora é só alternar */}
       <button className="altera-mascara" onClick={() => dispatchMascara({ type: "alternar" })}>
         Alterar
       </button>
