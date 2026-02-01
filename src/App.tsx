@@ -1,7 +1,6 @@
 import './App.css'
 import { useState } from "react";
 import Jogo from './Jogo'
-import Tutorial from './Tutorial'
 
 type Tela = 'menu' | 'jogo' | 'tutorial';
 
@@ -29,7 +28,6 @@ function App() {
       )}
 
       {tela === 'jogo' && <Jogo voltar={() => setTela('menu')} />}
-      {tela === 'tutorial' && <Tutorial voltar={() => setTela('menu')}/>}
     </div>
   )
 }

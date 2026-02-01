@@ -175,7 +175,7 @@ export default function Jogo({ voltar }: JogoProps) {
         ⭯
       </button>
 
-      <h1 id="titulo-montagem">Monte sua máscara e conquiste a coroa!</h1>
+      <h1 id="titulo-montagem">Ajude Mirabell enfeitar a máscara!</h1>
 
       <div className="mascara-palco">
         <img
