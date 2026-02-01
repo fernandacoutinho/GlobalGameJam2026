@@ -1,61 +1,69 @@
 .botao-voltar {
-    display: flex;
-    position: absolute;
-    top: 60px;
-    left: 5%;
-    background-color: transparent;
-    color: blueviolet;
-    font-size: 1.5rem;
-    transition: transform 0.4s ease;
+  display: flex;
+  position: absolute;
+  top: 60px;
+  left: 5%;
+  background-color: transparent;
+  color: blueviolet;
+  font-size: 1.5rem;
+  transition: transform 0.4s ease;
 }
 
 .botao-voltar:hover {
-    background-color: transparent;
-    color: darkviolet;
-    transform: rotate(-70deg);
+  background-color: transparent;
+  color: darkviolet;
+  transform: rotate(-70deg);
 }
 
 .botao-finalizar {
-    display: flex;
-    position: absolute;
-    bottom: 40px;
+  display: flex;
+  position: absolute;
+  bottom: 40px;
 }
 
 #titulo-montagem {
-    display: flex;
-    position: absolute;
-    top: 60px;
-    font-size: 1.5rem;
+  position: absolute;
+  top: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.6rem;
+  color: blueviolet;
+  text-align: center;
 }
 
 .mascara {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 420px;
 }
 
 .mascara img {
   max-width: 300px;
   height: auto;
+  pointer-events: none;
+  user-select: none;
 }
 
 .lado-esquerdo {
-    display: flex;
-    position: absolute;
-    left: 25%;
-    top: 170px;
-    flex-direction: column;
-    gap: 20px;
+  position: absolute;
+  left: 25%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .lado-direito {
-    display: flex;
-    position: absolute;
-    right: 25%;
-    top: 170px;
-    flex-direction: column;
-    gap: 20px;
+  position: absolute;
+  right: 25%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .botao-item{
@@ -91,7 +99,34 @@
   filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.25));
 }
 
-.mascara-img {
-  pointer-events: none;
+.lixeira {
+  position: absolute;
+  left: 30%;
+  transform: translateX(-50%);
+  bottom: 55px;
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  background: rgba(240, 240, 240, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
   user-select: none;
+}
+
+.lixeira span {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.lixeira.over {
+  background: rgba(195, 0, 255, 0.685);
+  box-shadow: 0 12px 26px rgba(197, 24, 250, 0.22);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
 }

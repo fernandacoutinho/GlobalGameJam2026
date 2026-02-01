@@ -18,7 +18,7 @@ type EnfeitesAction =
   | { type: "mover"; id: string; x: number; y: number }
   | { type: "remover"; id: string }
   | { type: "trazerPraFrente"; id: string }
-  | { type: "alternar"; tipo: EnfeiteTipo; x: number; y: number }; //botão de liga/desliga
+  | { type: "alternar"; tipo: EnfeiteTipo; x: number; y: number };
 
 function criarId() {
   return `${Date.now()}-${Math.random().toString(16).slice(2)}`;

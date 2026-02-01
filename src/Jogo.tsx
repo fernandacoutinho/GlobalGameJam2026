@@ -34,6 +34,10 @@ export default function Jogo({ voltar }: JogoProps) {
   const srcMascara = stateMascara.type === "branca" ? mascarabranca : mascaraGrande;
 
   const maskImgRef = useRef<HTMLImageElement | null>(null);
+
+  const trashRef = useRef<HTMLDivElement | null>(null);
+  const [overTrash, setOverTrash] = useState(false);
+
   const [drag, setDrag] = useState<DragInfo | null>(null);
 
   const assets = useMemo(() => {
@@ -54,6 +58,16 @@ export default function Jogo({ voltar }: JogoProps) {
     const el = maskImgRef.current;
     if (!el) return null;
     return el.getBoundingClientRect();
+  }
+
+  function getTrashRect() {
+    const el = trashRef.current;
+    if (!el) return null;
+    return el.getBoundingClientRect();
+  }
+
+  function pointInsideRect(clientX: number, clientY: number, rect: DOMRect) {
+    return clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom;
   }
 
   function itemDentroDoRect(clientX: number, clientY: number, rect: DOMRect, offsetX: number, offsetY: number) {
@@ -110,6 +124,10 @@ export default function Jogo({ voltar }: JogoProps) {
     function onMove(ev: MouseEvent) {
       if (!drag) return;
 
+      const trashRect = getTrashRect();
+      if (trashRect) setOverTrash(pointInsideRect(ev.clientX, ev.clientY, trashRect));
+      else setOverTrash(false);
+
       const pos = clientToMaskXY(ev.clientX, ev.clientY, drag.offsetX, drag.offsetY);
       if (!pos) return;
 
@@ -119,9 +137,18 @@ export default function Jogo({ voltar }: JogoProps) {
     function onUp(ev: MouseEvent) {
       if (!drag) return;
 
+      const trashRect = getTrashRect();
+      if (trashRect && pointInsideRect(ev.clientX, ev.clientY, trashRect)) {
+        dispatch({ type: "remover", id: drag.id });
+        setDrag(null);
+        setOverTrash(false);
+        return;
+      }
+
       const rect = getMaskRect();
       if (!rect) {
         setDrag(null);
+        setOverTrash(false);
         return;
       }
 
@@ -130,6 +157,7 @@ export default function Jogo({ voltar }: JogoProps) {
       }
 
       setDrag(null);
+      setOverTrash(false);
     }
 
     window.addEventListener("mousemove", onMove);
@@ -200,10 +228,14 @@ export default function Jogo({ voltar }: JogoProps) {
       </div>
 
       <button className="altera-mascara" onClick={() => dispatchMascara({ type: "alternar" })}>
-        Alterar
+        Trocar Máscara
       </button>
 
       <button className="botao-finalizar">Finalizar</button>
+
+      <div ref={trashRef} className={`lixeira ${overTrash ? "over" : ""}`}>
+        <span>🗑️</span>
+      </div>
     </>
   );
 }
