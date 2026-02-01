@@ -19,7 +19,7 @@ function App() {
   }
 
   return (
-    <div className="app">
+    <div className={`app ${tela === "menu" ? "menu" : ""}`}>
       {tela === "menu" && (
         <>
           <h1>B.E.L.L.</h1>

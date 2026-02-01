@@ -6,9 +6,9 @@
 
   background: linear-gradient(
     to right,
-    rgba(121, 0, 151, 0.25),
-    rgba(255, 0, 255, 0.35),
-    rgba(186, 85, 211, 0.25)
+    rgb(121, 0, 151),
+    rgb(255, 0, 255),
+    rgb(186, 85, 211)
   );
 
   display: flex;
