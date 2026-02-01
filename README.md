@@ -1,4 +1,4 @@
-# 🎭 BELL - Jogo de Customização de Máscaras - Global Game Jam
+# 🎭 B.E.L.L. - Jogo de Customização de Máscaras - Global Game Jam
 
 Um jogo 2D de **customização de máscaras** com estética mágica em pixel art.  
 Feito para a **Global Game Jam**: monte sua máscara, escolha enfeites e crie uma combinação única!
