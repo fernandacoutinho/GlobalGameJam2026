@@ -3,15 +3,11 @@
 Um jogo 2D de **customização de máscaras** com estética mágica em pixel art.  
 Feito para a **Global Game Jam**: monte sua máscara, escolha enfeites e crie uma combinação única!
 
----
-
 ## ✨ Sobre o jogo
 
 Depois de um imprevisto em um baile de máscaras, a personagem encontra um **ateliê encantado** e precisa reconstruir sua máscara, do jeito mais bonito possível.
 
 O objetivo é simples: **personalizar a máscara** com enfeites e criar sua própria versão.
-
----
 
 ## 🕹️ Funcionalidades
 
@@ -22,15 +18,11 @@ O objetivo é simples: **personalizar a máscara** com enfeites e criar sua pró
 - 🧩 Controle de camadas (itens ficam “por cima” corretamente)
 - 🎉 Botão de finalizar com feedback “tada”
 
----
-
 ## 🎨 Estilo visual
 
 - Pixel art
 - Paleta suave e mágica (roxos, azuis, rosados)
 - Interface simples e intuitiva
-
----
 
 ## 🛠️ Tecnologias
 
@@ -38,8 +30,6 @@ O objetivo é simples: **personalizar a máscara** com enfeites e criar sua pró
 - **TypeScript**
 - **Vite**
 - **CSS**
-
----
 
 ## 🤝 Colaboradoras
 
