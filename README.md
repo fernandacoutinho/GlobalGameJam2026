@@ -1,73 +1,47 @@
-# React + TypeScript + Vite
+# 🎭 BELL - Jogo de Customização de Máscaras - Global Game Jam
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um jogo 2D de **customização de máscaras** com estética mágica em pixel art.  
+Feito para a **Global Game Jam**: monte sua máscara, escolha enfeites e crie uma combinação única!
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Sobre o jogo
 
-## React Compiler
+Depois de um imprevisto em um baile de máscaras, a personagem encontra um **ateliê encantado** e precisa reconstruir sua máscara, do jeito mais bonito possível.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+O objetivo é simples: **personalizar a máscara** com enfeites e criar sua própria versão.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🕹️ Funcionalidades
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- 🎭 Alternar entre tipos de máscara
+- 🖱️ Arrastar e soltar enfeites sobre a máscara (drag & drop)
+- 📌 Enfeites ficam posicionados onde você soltar (dentro da máscara)
+- ❌ Ao soltar fora da área da máscara, o enfeite desaparece
+- 🧩 Controle de camadas (itens ficam “por cima” corretamente)
+- 🎉 Botão de finalizar com feedback “tada”
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🎨 Estilo visual
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Pixel art
+- Paleta suave e mágica (roxos, azuis, rosados)
+- Interface simples e intuitiva
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠️ Tecnologias
+
+- **React**
+- **TypeScript**
+- **Vite**
+- **CSS**
+
+---
+
+## 🤝 Colaboradoras
+
+- Fernanda Coutinho
+- Juliana Lindebeck
