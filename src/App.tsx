@@ -11,10 +11,6 @@ function App() {
     setTela('jogo');
   }
 
-  function tutorial() {
-    setTela('tutorial');
-  }
-
   return (
     <div className="app">
       {tela === 'menu' && (
@@ -22,7 +18,6 @@ function App() {
           <h1>B.E.L.L.</h1>
           <div className = "botoes">
             <button onClick={jogar}>Jogar</button>
-            <button onClick={tutorial}>Tutorial</button>
           </div>
         </>
       )}

@@ -69,17 +69,21 @@
 .botao-item{
   width: 64px;
   height: 64px;
-  border-radius: 14px;
+  border-radius: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: #f0f0f0;
+  background-color: #f0f0f0a8;
+}
+
+.botao-item:hover{
+  background: rgba(195, 0, 255, 0.685);
 }
 
 .botao-item img{
-  width: 44px;
-  height: 44px;
+  width: 50px;
+  height: 50px;
 }
 
 .mascara-palco {
